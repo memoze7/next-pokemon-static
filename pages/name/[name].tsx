@@ -101,11 +101,13 @@ const PokemonByName: NextPage<Props> = ({ pokemon }) => {
 
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
 
-  const { data } = await pokeApi.get<PokemonListResponse>('/pokemon?limit=151')
+  const { data } = await pokeApi.get<PokemonListResponse>('/pokemon?limit=151');
+  const pokemonNames: string[] = data.results.map(pokemon => pokemon.name);
+
 
   return {
-    paths: data.results.map(({ name }) => ({
-      params: { name: name }
+    paths: pokemonNames.map(name => ({
+      params: { name }
     })),
     fallback: false
   }

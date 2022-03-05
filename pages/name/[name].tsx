@@ -10,6 +10,7 @@ import pokeApi from '../../api/pokeApi';
 import { PokemonListResponse } from '../../interfaces/pokemon-list';
 import { getPokemonInfo } from '../../utils/getPokemonInfo';
 
+
 interface Props {
   pokemon: Pokemon
 }
@@ -54,7 +55,7 @@ const PokemonByName: NextPage<Props> = ({ pokemon }) => {
         </Grid>
         <Grid xs={12} sm={8}>
           <Card>
-            <Card.Header css={{ display: 'flex', justifyContent: "space-between" }}>
+            <Card.Header css={{ display: 'flex', justifyContent: "space-between", flexWrap: "wrap" }}>
               <Text h1 transform="capitalize">{pokemon.name}</Text>
 
               <Button
